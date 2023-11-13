@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RPN Spundungsrechner - elfring.ms</title><meta name="description" content="Spunden ist ist das Anreichern von Getränken &ndash; hier Bier &ndash; mit Kohlenstoffdioxid."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://elfring.ms/rpn-spundungsrechner-3.html"><link rel="alternate" type="application/atom+xml" href="https://elfring.ms/feed.xml"><link rel="alternate" type="application/json" href="https://elfring.ms/feed.json"><meta property="og:title" content="RPN Spundungsrechner"><meta property="og:image" content="https://elfring.ms/media/posts/6/Hp42s_face.png"><meta property="og:image:width" content="296"><meta property="og:image:height" content="421"><meta property="og:site_name" content="elfring.ms"><meta property="og:description" content="Spunden ist ist das Anreichern von Getränken &ndash; hier Bier &ndash; mit Kohlenstoffdioxid."><meta property="og:url" content="https://elfring.ms/rpn-spundungsrechner-3.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://elfring.ms/media/website/dnftf.png" type="image/png"><link rel="stylesheet" href="https://elfring.ms/assets/css/style.css?v=7f994398c9e63607f45060c99bd510be"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://elfring.ms/rpn-spundungsrechner-3.html"},"headline":"RPN Spundungsrechner","datePublished":"2018-10-17T16:13","dateModified":"2023-10-18T19:15","image":{"@type":"ImageObject","url":"https://elfring.ms/media/posts/6/Hp42s_face.png","height":421,"width":296},"description":"Spunden ist ist das Anreichern von Getränken &ndash; hier Bier &ndash; mit Kohlenstoffdioxid.","author":{"@type":"Person","name":"Jörg","url":"https://elfring.ms/authors/joerg/"},"publisher":{"@type":"Organization","name":"Jörg"}}</script><noscript><style>img[loading] {
+                    opacity: 1;
+                }</style></noscript><script>MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};</script><script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head><body><header class="header" id="js-header"><a href="https://elfring.ms/index.html" class="logo">elfring.ms</a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="mailto://info@elfring.ms" target="_self">Mail</a></li><li><a href="https://chaos.social/@elfrinjo" target="_self" rel="me">Mastodon</a></li><li><a href="https://code.elfring.ms/explore/repos" target="_self">Code</a></li><li><a href="https://www.xing.com/profile/Joerg_Elfring" target="_self">Xing</a></li></ul></nav></header><main><div class="wrapper"><article class="post"><header class="post__header"><a href="https://elfring.ms/tags/craftbeer/index.html" class="post__maintag">CraftBeer</a><h1 class="post__title">RPN Spundungsrechner</h1><div class="post__meta"><time datetime="2018-10-17T16:13">17 Oktober 2018</time></div></header><figure class="post__featured-image"><img src="https://elfring.ms/media/posts/6/Hp42s_face.png" srcset="https://elfring.ms/media/posts/6/responsive/Hp42s_face-xs.png 300w, https://elfring.ms/media/posts/6/responsive/Hp42s_face-sm.png 480w, https://elfring.ms/media/posts/6/responsive/Hp42s_face-md.png 768w, https://elfring.ms/media/posts/6/responsive/Hp42s_face-lg.png 1200w" sizes="(min-width: 56.25em) 100vw, (min-width: 37.5em) 50vw, 100vw" loading="eager" height="421" width="296" alt=""><figcaption>Wikimedia Commons https://commons.wikimedia.org/wiki/File:Hp42s_face.jpeg</figcaption></figure><div class="post__inner"><div class="post__entry"><p>Spunden ist ist das Anreichern von Getränken &ndash; hier Bier &ndash; mit Kohlenstoffdioxid.</p><p>Den richtigen CO<sub>2</sub>-Druck liest man klassisch aus der <a href="https://hobbybrauer.de/forum/wiki/doku.php/spundungstabelle">Spundungstabelle</a> ab. Praktischer ist es, einen Spundungsrechner auf dem Handy zu haben. Noch besser ist es natürlich die Berechnung auf einer mobilen 80er Jahre Plattform zu machen.</p><p>Damals&#153; gab es noch programmierbare Taschenrechner. Die konnten zwar nicht so viel wie moderne Apps, waren aber deutlich praktischer um kleine Rechenarbeiten zu programmieren. Heute kann man Thomas Okkens exzellente Emulation <a href="http://thomasokken.com/free42/">Free42</a> des HP-42S für alle möglichen Plattformen nutzen um RPN Programme wieder auferstehen zu lassen. Wer lieber auf Hardware setzt, wird bei <a href="https://www.swissmicros.com/">SwissMicros</a> fündig. Dort hat Michael Steinmann mit dem DM42 eine passende Hardware für den Emulator entwickelt.</p><p>Die Berechnung der gelösten Kohlensäure erfolgt, laut der Webseite <a href="http://braukaiser.com/wiki/index.php/Carbonation_Tables">Braukaiser</a>, nach der folgenden Formel: $$ \beta_{(p,\vartheta)} = ( p + 1,013) \times { \mathrm{e}^{ -10,73797 + \frac{2617,25}{\vartheta + 273,15}}} \times 10 $$ $\beta:$ CO<sub>2</sub> Konzentration in g/&ell;<br>$p:$ Überdruck zur Karbonisierung in bar<br>$\vartheta:$ Temperatur in °C</p><p>Um diese Formel mit dem Solver des HP-42S zu nutzen muss sie zunächst so umgestellt werden, dass auf einer Seite 0 steht. Anschließend wird die Rechnung auf der andere Seite in einem RPN Programm umgesetzt. MVAR füllt dabei das Menü des Solvers.</p><pre><code>LBL &quot;Spnd&quot;
+MVAR &quot;bar&quot;
+MVAR &quot;°C&quot;
+MVAR &quot;g/l&quot;
+2617,25
+273,15
+RCL &quot;°C&quot;
++
+/
+10,73797
+-
+E^X
+RCL &quot;bar&quot;
+1,013
++
+*
+10
+*
+RCL &quot;g/l&quot;
+-
+END
+</code></pre><p>Das Programm kann kann über die Tasten SOLVER und SPND gestartet werden. Parameter werden über die Zifferntasten, gefolgt vom Softkey für die Variable eingegeben. Das Ergebnis wird dann über den entsprechenden Softkey abgefragt. Für 5,5 g/&ell; CO<sub>2</sub> und einer Temperatur von 7 °C ergibt sich damit ein Spundungsdruck von 1,2 bar:<br></p><figure class="post__image"><img loading="lazy" src="https://elfring.ms/media/posts/6/1.2bar.png" alt="Ergebnis: 1,2077 bar" width="313" height="164" sizes="(max-width: 48em) 100vw, 100vw" srcset="https://elfring.ms/media/posts/6/responsive/1.2bar-xs.png 300w, https://elfring.ms/media/posts/6/responsive/1.2bar-sm.png 480w, https://elfring.ms/media/posts/6/responsive/1.2bar-md.png 768w"></figure><p></p></div><footer><div class="post__tags-share"><ul class="post__tag"><li><a href="https://elfring.ms/tags/craftbeer/index.html">CraftBeer</a></li><li><a href="https://elfring.ms/tags/homebrew/index.html">Homebrew</a></li><li><a href="https://elfring.ms/tags/rpn/index.html">RPN</a></li><li><a href="https://elfring.ms/tags/techstuff/index.html">TechStuff</a></li></ul></div><nav class="post__nav"><div class="post__nav__prev"><a class="post__nav__link" href="https://elfring.ms/chili-con-carne-con-stout.html" rel="prev">Previous Post<h3 class="h6">Chili con Carne con Stout</h3></a></div><div class="post__nav__next"><a class="post__nav__link" href="https://elfring.ms/vpn-mit-wireguard.html" rel="prev">Next Post<h3 class="h6">VPN mit Wireguard</h3></a></div></nav></footer></div></article></div></main><footer class="footer"><div class="footer__copyright">-</div></footer><script>window.publiiThemeMenuConfig = {    
+      mobileMenuMode: 'sidebar',
+      animationSpeed: 300,
+      submenuWidth: 'auto',
+      doubleClickTime: 500,
+      mobileMenuExpandableSubmenus: true, 
+      relatedContainerForOverlayMenuSelector: '.navbar',
+   };</script><script defer="defer" src="https://elfring.ms/assets/js/scripts.min.js?v=66112a161d5939d966ce2b20c13988d9"></script><script>var images = document.querySelectorAll('img[loading]');
+
+      for (var i = 0; i < images.length; i++) {
+         if (images[i].complete) {
+               images[i].classList.add('is-loaded');
+         } else {
+               images[i].addEventListener('load', function () {
+                  this.classList.add('is-loaded');
+               }, false);
+         }
+      }</script></body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VPN mit Wireguard - elfring.ms</title><meta name="description" content="In diesem Blog installiere ich ein VPN Gateway um den eigenen Internettraffic in öffentlichen W-LANs oder anderen potentiell unsicheren Netzen zu verschlüsseln und über einen eigenen Server in das Internet zu routen."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://elfring.ms/vpn-mit-wireguard.html"><link rel="alternate" type="application/atom+xml" href="https://elfring.ms/feed.xml"><link rel="alternate" type="application/json" href="https://elfring.ms/feed.json"><meta property="og:title" content="VPN mit Wireguard"><meta property="og:image" content="https://elfring.ms/media/posts/7/markus-spiske-793546-unsplash.png"><meta property="og:image:width" content="576"><meta property="og:image:height" content="384"><meta property="og:site_name" content="elfring.ms"><meta property="og:description" content="In diesem Blog installiere ich ein VPN Gateway um den eigenen Internettraffic in öffentlichen W-LANs oder anderen potentiell unsicheren Netzen zu verschlüsseln und über einen eigenen Server in das Internet zu routen."><meta property="og:url" content="https://elfring.ms/vpn-mit-wireguard.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://elfring.ms/media/website/dnftf.png" type="image/png"><link rel="stylesheet" href="https://elfring.ms/assets/css/style.css?v=7f994398c9e63607f45060c99bd510be"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://elfring.ms/vpn-mit-wireguard.html"},"headline":"VPN mit Wireguard","datePublished":"2018-12-23T16:30","dateModified":"2023-10-18T19:11","image":{"@type":"ImageObject","url":"https://elfring.ms/media/posts/7/markus-spiske-793546-unsplash.png","height":384,"width":576},"description":"In diesem Blog installiere ich ein VPN Gateway um den eigenen Internettraffic in öffentlichen W-LANs oder anderen potentiell unsicheren Netzen zu verschlüsseln und über einen eigenen Server in das Internet zu routen.","author":{"@type":"Person","name":"Jörg","url":"https://elfring.ms/authors/joerg/"},"publisher":{"@type":"Organization","name":"Jörg"}}</script><noscript><style>img[loading] {
+                    opacity: 1;
+                }</style></noscript><script>MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};</script><script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head><body><header class="header" id="js-header"><a href="https://elfring.ms/index.html" class="logo">elfring.ms</a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="mailto://info@elfring.ms" target="_self">Mail</a></li><li><a href="https://chaos.social/@elfrinjo" target="_self" rel="me">Mastodon</a></li><li><a href="https://code.elfring.ms/explore/repos" target="_self">Code</a></li><li><a href="https://www.xing.com/profile/Joerg_Elfring" target="_self">Xing</a></li></ul></nav></header><main><div class="wrapper"><article class="post"><header class="post__header"><a href="https://elfring.ms/tags/security/index.html" class="post__maintag">Security</a><h1 class="post__title">VPN mit Wireguard</h1><div class="post__meta"><time datetime="2018-12-23T16:30">23 Dezember 2018</time></div></header><figure class="post__featured-image"><img src="https://elfring.ms/media/posts/7/markus-spiske-793546-unsplash.png" srcset="https://elfring.ms/media/posts/7/responsive/markus-spiske-793546-unsplash-xs.png 300w, https://elfring.ms/media/posts/7/responsive/markus-spiske-793546-unsplash-sm.png 480w, https://elfring.ms/media/posts/7/responsive/markus-spiske-793546-unsplash-md.png 768w, https://elfring.ms/media/posts/7/responsive/markus-spiske-793546-unsplash-lg.png 1200w" sizes="(min-width: 56.25em) 100vw, (min-width: 37.5em) 50vw, 100vw" loading="eager" height="384" width="576" alt=""><figcaption>Markus Spiske via Unsplash</figcaption></figure><div class="post__inner"><div class="post__entry"><p>In diesem Blog installiere ich ein VPN Gateway um den eigenen Internettraffic in öffentlichen W-LANs oder anderen potentiell unsicheren Netzen zu verschlüsseln und über einen eigenen Server in das Internet zu routen.</p><p>Wireguard ist eine moderne VPN Implementierung im Linux Kernel die mit einer relativ simplen Konfiguration auskommt. Die entsprechende Software wird auf dem Linux Server als dynamisches Kernelmodul installiert. Dabei besteht die Kernelimplementierung von Wireguard gerade einmal aus ca. 4000 Zeilen Code<a href="https://arstechnica.com/gadgets/2018/08/wireguard-vpn-review-fast-connections-amaze-but-windows-support-needs-to-happen/">¹</a>. Für die Clients gibt es entsprechende Pakete über den Packagemanager oder die <a href="https://www.wireguard.com/install/#packages">Wireguard Homepage</a>.</p><p>Die Begriffe Client und Server treffen es hier nicht wirklich da Wireguard praktisch “nur” virtuelle Netzwerkinterfaces bereitstellt die untereinander (verschlüsselt) verbunden sind. Der Server erhält seine Rolle dadurch, dass er eine Routinginstanz für den Internettraffic darstellt. Die pink hinterlegten Netzwerkbereiche sehen nur die verschlüsselten Daten.</p><p></p><figure class="post__image"><img loading="lazy" src="https://elfring.ms/media/posts/7/wg-vpn-2.png" alt="" width="600" height="253" sizes="(max-width: 48em) 100vw, 100vw" srcset="https://elfring.ms/media/posts/7/responsive/wg-vpn-2-xs.png 300w, https://elfring.ms/media/posts/7/responsive/wg-vpn-2-sm.png 480w, https://elfring.ms/media/posts/7/responsive/wg-vpn-2-md.png 768w"></figure><p></p><p>Das Resultat ist also, dass der VPN CLient lediglich eine ausgehende, verschlüsselte Verbindung zum VPN Server hat und damit auch in potentiell unsicheren Netzwerken nicht überwacht werden kann.</p><h2 id="serverinstallation">Serverinstallation</h2><p>Im ersten Schritt wird die Software auf dem Arch Linux Server installiert. Da es sich um ein dynamisches Kernelmodul handelt, müssen auch die Linux-Header mitinstalliert werden. Für andere Distributionen gibt es Installationsanweisungen auf der <a href="https://www.wireguard.com/install/#packages">Projektseite</a>.</p><pre><code class="language-bash">$ sudo pacman -Sy linux-headers wireguard-tools wireguard-dkms
+</code></pre><p><em>Schlüsselpaare</em><br>Als nächstes müssen die privaten und öffentlichen Schlüssel für Client und Server erzeugt werden. <strong>Zur Verdeutlichung habe ich hier die Schlüsselrollen mit in die Keys geschrieben; tatsächlich werden nur die kryptischen Strings erzeugt.</strong></p><pre><code class="language-bash">$ wg genkey
+4EKnzma4x__SERVER-PRIV__EYvAnEBgPs8p3zAt81A=
+
+$ echo 4EKnzma4x__SERVER-PRIV__EYvAnEBgPs8p3zAt81A= | wg pubkey
+31/uhemkNP__SERVER-PUB__n4unk8rHV3G5G/TX0m4=
+
+$ wg genkey
+yMvuuQou67g__CLIENT-PRIV__2/ruLh9Nb+gGZz/u0E=
+
+$ echo yMvuuQou67g__CLIENT-PRIV__2/ruLh9Nb+gGZz/u0E= | wg pubkey
+BT3mIYb93__CLIENT-PUB__Cg3FrnOsoeG2+7/aRCyg=
+</code></pre><p><em>Konfiguration</em><br>Mit diesen Keys wird die Wireguard Konfiguration für den Server und den ersten Client erzeugt. Aus dem Namen der Konfigurationsdatei <code>/etc/wireguard/wg0.conf</code> leitet sich anschließend beim starten der Name des VPN Interfaces ab. Die Funktionen der einzelnen Parameter sind Inline komentiert:</p><pre><code class="language-toml">## Die VPN-Serverkonfiguration:
+[Interface]
+# Die Serveradresse im VPN, hier wird auch das gesamte VPN als
+# Klasse C Netz definiert:
+Address    = 10.1.1.1/24
+# Der Listen Port des Servers:
+ListenPort = 51820
+# Der private Schlüssel des Servers:
+PrivateKey = 4EKnzma4x__SERVER-PRIV__EYvAnEBgPs8p3zAt81A=
+# Skritpe die bei starten und stoppen des VPN ausgeführt werden
+# Hier wird die NAT für das Internetgateway eingerichtet und beim stoppen
+# wieder gelöscht. ens3 ist das Internet-Interface des Servers:
+PostUp     = iptables -t nat -A POSTROUTING -s 10.1.1.0/24 -o ens3 \
+             -j MASQUERADE; \
+             iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED \
+             -j ACCEPT; \
+             iptables -A FORWARD -i wg0 -o ens3 -j ACCEPT
+PostDown   = iptables -t nat -D POSTROUTING -s 10.1.1.0/24 -o ens3 \
+             -j MASQUERADE; \
+             iptables -D FORWARD -m conntrack --ctstate RELATED,ESTABLISHED \
+             -j ACCEPT; \
+             iptables -D FORWARD -i wg0 -o ens3 -j ACCEPT
+
+## Die Konfiguration für den ersten Client
+[Peer]
+# Der öffentliche schüssel des Clients:
+PublicKey  = BT3mIYb93__CLIENT-PUB__Cg3FrnOsoeG2+7/aRCyg=
+# Die Adresse nutzt der Client innerhalb des VPN:
+AllowedIPs = 10.1.1.2/32
+</code></pre><p>Die Konfiguration sollte nur für root lesbar sein, da der private Serverschlüssel hier hinterlegt ist.</p><p>Da der Server als Internetgateway arbeiten soll muss das Forwarding von IP Verbindungen auf dem Server dauerhaft aktiviert werden. Dies erfolgt über einen Eintrag in <code>/etc/sysctl.d/99-sysctl.conf</code>. Dort gemachte Einstellungen werden bei jedem Serverstart geladen.</p><pre><code class="language-bash">$ sudo sysctl net.ipv4.ip_forward=1
+$ sudo sh -c &#39;echo net.ipv4.ip_forward=1 &gt;&gt; /etc/sysctl.d/99-sysctl.conf&#39;
+</code></pre><p><em>Das VPN starten</em><br>Das Kommando <code>wg-quick</code> liest diese Konfiguration und baut das VPN Interface auf dem Server auf.</p><pre><code class="language-bash">$ sudo wg-quick up wg0
+[#] ip link add wg0 type wireguard
+[#] wg setconf wg0 /dev/fd/63
+[#] ip address add 10.1.1.1/24 dev wg0
+[#] ip link set mtu 1420 up dev wg0
+[#] iptables -t nat -A POSTROUTING -s 10.1.1.0/24 -o ens3 -j MASQUERADE;
+    iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT;
+    iptables -A FORWARD -i wg0 -o ens3 -j ACCEPT
+</code></pre><p>Das VPN Interface soll natürlich automatisch gestartet werden; das kann systemd übernehmen.</p><pre><code class="language-bash">$ sudo systemctl enable wg-quick@wg0
+Created symlink /etc/systemd/system/multi-user.target.wants/wg-quick@wg0.service
+                → /usr/lib/systemd/system/wg-quick@.service.
+</code></pre><h2 id="client">Client</h2><p>Der Android Client ist als Beta Version im Play Store <a href="https://play.google.com/store/apps/details?id=com.wireguard.android">verfügbar</a> Die Konfiguration selbst sieht dabei der Serverkonfiguration sehr ähnlich und kann über ein Textfile oder einen QR Code importiert werden. Alternativ stehen die Felder auch in der GUI zur Verfügung.</p><pre><code class="language-toml">## Das VPN Interface auf dem Client:
+[Interface]
+Address    = 10.1.1.2/32
+PrivateKey = yMvuuQou67g__CLIENT-PRIV__2/ruLh9Nb+gGZz/u0E=
+# Ein öffentlicher DNS Server, da wir den aus dem lokalen Netz nicht nutzen
+DNS        = 1.1.1.1
+
+## Dieses mal ist der &quot;Peer&quot; unser Server
+[Peer]
+PublicKey  = 31/uhemkNP__SERVER-PUB__n4unk8rHV3G5G/TX0m4=
+# Die AllowedIPs sind hier die Adressen die in das VPN geroutet werden sollen,
+# ... also alle
+AllowedIPs = 0.0.0.0/0
+Endpoint   = vpnserver.example.com:51820
+</code></pre><h2 id="test">Test</h2><p>Damit kann das VPN auch auf dem Client gestartet werden. Um zu testen ob wir uns im Tunnel befinden, können wir zwei Tests machen:</p><ul><li>Vom Client aus kann die private Adresse des Peers 10.1.1.1 angepingt werden. Dies wäre über die Internetleitung nicht möglich.</li><li>Ein Dienst wie <a href="https://icanhazip.com/">https://icanhazip.com/</a> liefert die öffentliche Adresse des Servers zurück, nicht mehr die des Smartphones.</li></ul></div><footer><div class="post__tags-share"><ul class="post__tag"><li><a href="https://elfring.ms/tags/security/index.html">Security</a></li><li><a href="https://elfring.ms/tags/techstuff/index.html">TechStuff</a></li><li><a href="https://elfring.ms/tags/vpn/index.html">VPN</a></li></ul></div><nav class="post__nav"><div class="post__nav__prev"><a class="post__nav__link" href="https://elfring.ms/rpn-spundungsrechner-3.html" rel="prev">Previous Post<h3 class="h6">RPN Spundungsrechner</h3></a></div><div class="post__nav__next"><a class="post__nav__link" href="https://elfring.ms/have-i-been-pwned.html" rel="prev">Next Post<h3 class="h6">Have I been Pwned?</h3></a></div></nav></footer></div></article></div></main><footer class="footer"><div class="footer__copyright">-</div></footer><script>window.publiiThemeMenuConfig = {    
+      mobileMenuMode: 'sidebar',
+      animationSpeed: 300,
+      submenuWidth: 'auto',
+      doubleClickTime: 500,
+      mobileMenuExpandableSubmenus: true, 
+      relatedContainerForOverlayMenuSelector: '.navbar',
+   };</script><script defer="defer" src="https://elfring.ms/assets/js/scripts.min.js?v=66112a161d5939d966ce2b20c13988d9"></script><script>var images = document.querySelectorAll('img[loading]');
+
+      for (var i = 0; i < images.length; i++) {
+         if (images[i].complete) {
+               images[i].classList.add('is-loaded');
+         } else {
+               images[i].addEventListener('load', function () {
+                  this.classList.add('is-loaded');
+               }, false);
+         }
+      }</script></body></html>
