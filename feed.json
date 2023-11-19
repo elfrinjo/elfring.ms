@@ -10,6 +10,20 @@
     },
     "items": [
         {
+            "id": "https://elfring.ms/pgp-schluessel.html",
+            "url": "https://elfring.ms/pgp-schluessel.html",
+            "title": "PGP Key",
+            "summary": "Adresse: &#x69;&#110;&#x66;&#111;&#x40;&#101;&#x6c;&#102;&#x72;&#x69;&#x6e;&#x67;&#46;&#109;&#x73; Fingerprint: 44bc07b3-f915-4f56-ac64-2be22a9aa915 -----BEGIN PGP PUBLIC KEY BLOCK----- mDMEZVoj1hYJKwYBBAHaRw8BAQdAY1M10T+fd8PPIPk5Ds9xWVDtsbAkzMXzUm4a wapI4JK0D2luZm9AZWxmcmluZy5tc4iQBBMWCAA4FiEErp6gb9SwJCCdiHW/hBWl rwqBJ9AFAmVaI9YCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQhBWlrwqB J9DEBAD/Y3JHJh7TWrlsqRWAg4HgoXxAh8wsjg5irz5ZDUB+nisBAJNfk6wvh3uJ J/YZS//6R4/V7s0tPYNObKEpZ3TDlPsBuDgEZVoj1hIKKwYBBAGXVQEFAQEHQH92 NGBjRv/Gh9mE8l94uFbgIm+YKbEEMPWJUGnGZL1nAwEIB4h4BBgWCAAgFiEErp6g b9SwJCCdiHW/hBWlrwqBJ9AFAmVaI9YCGwwACgkQhBWlrwqBJ9AN0AD9EJOy8tqw nIkSLbmYd5yeVoQWxdpwAwrBD1dvoOkCHIYBALpaR2lSSTTZASfAtOi8rZ7pHrFn Is8dLNYnIAk0w/4D =ohgr -----END PGP PUBLIC KEY BLOCK-----",
+            "content_html": "<p>Adresse:  <a href=\"mailto:&#x69;&#110;&#x66;&#111;&#x40;&#101;&#x6c;&#102;&#x72;&#x69;&#x6e;&#x67;&#46;&#109;&#x73;\">&#x69;&#110;&#x66;&#111;&#x40;&#101;&#x6c;&#102;&#x72;&#x69;&#x6e;&#x67;&#46;&#109;&#x73;</a></p>\n<p>Fingerprint: <code>44bc07b3-f915-4f56-ac64-2be22a9aa915</code></p>\n<pre><code>-----BEGIN PGP PUBLIC KEY BLOCK-----\nmDMEZVoj1hYJKwYBBAHaRw8BAQdAY1M10T+fd8PPIPk5Ds9xWVDtsbAkzMXzUm4a\nwapI4JK0D2luZm9AZWxmcmluZy5tc4iQBBMWCAA4FiEErp6gb9SwJCCdiHW/hBWl\nrwqBJ9AFAmVaI9YCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQhBWlrwqB\nJ9DEBAD/Y3JHJh7TWrlsqRWAg4HgoXxAh8wsjg5irz5ZDUB+nisBAJNfk6wvh3uJ\nJ/YZS//6R4/V7s0tPYNObKEpZ3TDlPsBuDgEZVoj1hIKKwYBBAGXVQEFAQEHQH92\nNGBjRv/Gh9mE8l94uFbgIm+YKbEEMPWJUGnGZL1nAwEIB4h4BBgWCAAgFiEErp6g\nb9SwJCCdiHW/hBWlrwqBJ9AFAmVaI9YCGwwACgkQhBWlrwqBJ9AN0AD9EJOy8tqw\nnIkSLbmYd5yeVoQWxdpwAwrBD1dvoOkCHIYBALpaR2lSSTTZASfAtOi8rZ7pHrFn\nIs8dLNYnIAk0w/4D\n=ohgr\n-----END PGP PUBLIC KEY BLOCK-----\n</code></pre>\n",
+            "author": {
+                "name": "Jörg"
+            },
+            "tags": [
+            ],
+            "date_published": "2023-11-19T16:07:58+01:00",
+            "date_modified": "2023-11-19T16:19:39+01:00"
+        },
+        {
             "id": "https://elfring.ms/scotch-eggs.html",
             "url": "https://elfring.ms/scotch-eggs.html",
             "title": "Scotch Eggs",
