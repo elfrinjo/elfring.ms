@@ -3,46 +3,12 @@
     <title>elfring.ms</title>
     <link href="https://elfring.ms/feed.xml" rel="self" />
     <link href="https://elfring.ms" />
-    <updated>2023-11-19T20:39:24+01:00</updated>
+    <updated>2023-11-03T21:37:19+01:00</updated>
     <author>
         <name>Jörg</name>
     </author>
     <id>https://elfring.ms</id>
 
-    <entry>
-        <title>PGP Key</title>
-        <author>
-            <name>Jörg</name>
-        </author>
-        <link href="https://elfring.ms/pgp-schluessel.html"/>
-        <id>https://elfring.ms/pgp-schluessel.html</id>
-
-        <updated>2023-11-19T20:39:24+01:00</updated>
-            <summary>
-                <![CDATA[
-                    Adresse: &#105;&#110;&#102;&#111;&#x40;&#101;&#108;&#102;&#114;&#105;&#110;&#x67;&#x2e;&#x6d;&#x73; Fingerprint: 44bc07b3-f915-4f56-ac64-2be22a9aa915 -----BEGIN PGP PUBLIC KEY BLOCK----- mDMEZVoj1hYJKwYBBAHaRw8BAQdAY1M10T+fd8PPIPk5Ds9xWVDtsbAkzMXzUm4a wapI4JK0D2luZm9AZWxmcmluZy5tc4iQBBMWCAA4FiEErp6gb9SwJCCdiHW/hBWl rwqBJ9AFAmVaI9YCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQhBWlrwqB J9DEBAD/Y3JHJh7TWrlsqRWAg4HgoXxAh8wsjg5irz5ZDUB+nisBAJNfk6wvh3uJ J/YZS//6R4/V7s0tPYNObKEpZ3TDlPsBuDgEZVoj1hIKKwYBBAGXVQEFAQEHQH92 NGBjRv/Gh9mE8l94uFbgIm+YKbEEMPWJUGnGZL1nAwEIB4h4BBgWCAAgFiEErp6g b9SwJCCdiHW/hBWlrwqBJ9AFAmVaI9YCGwwACgkQhBWlrwqBJ9AN0AD9EJOy8tqw nIkSLbmYd5yeVoQWxdpwAwrBD1dvoOkCHIYBALpaR2lSSTTZASfAtOi8rZ7pHrFn Is8dLNYnIAk0w/4D=ohgr -----END PGP PUBLIC KEY BLOCK-----
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>Adresse:  <a href="mailto:&#105;&#110;&#102;&#111;&#x40;&#101;&#108;&#102;&#114;&#105;&#110;&#x67;&#x2e;&#x6d;&#x73;">&#105;&#110;&#102;&#111;&#x40;&#101;&#108;&#102;&#114;&#105;&#110;&#x67;&#x2e;&#x6d;&#x73;</a></p>
-<p>Fingerprint: <code>44bc07b3-f915-4f56-ac64-2be22a9aa915</code></p>
-<pre><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
-mDMEZVoj1hYJKwYBBAHaRw8BAQdAY1M10T+fd8PPIPk5Ds9xWVDtsbAkzMXzUm4a
-wapI4JK0D2luZm9AZWxmcmluZy5tc4iQBBMWCAA4FiEErp6gb9SwJCCdiHW/hBWl
-rwqBJ9AFAmVaI9YCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQhBWlrwqB
-J9DEBAD/Y3JHJh7TWrlsqRWAg4HgoXxAh8wsjg5irz5ZDUB+nisBAJNfk6wvh3uJ
-J/YZS//6R4/V7s0tPYNObKEpZ3TDlPsBuDgEZVoj1hIKKwYBBAGXVQEFAQEHQH92
-NGBjRv/Gh9mE8l94uFbgIm+YKbEEMPWJUGnGZL1nAwEIB4h4BBgWCAAgFiEErp6g
-b9SwJCCdiHW/hBWlrwqBJ9AFAmVaI9YCGwwACgkQhBWlrwqBJ9AN0AD9EJOy8tqw
-nIkSLbmYd5yeVoQWxdpwAwrBD1dvoOkCHIYBALpaR2lSSTTZASfAtOi8rZ7pHrFn
-Is8dLNYnIAk0w/4D=ohgr
------END PGP PUBLIC KEY BLOCK-----
-</code></pre>
-
-            ]]>
-        </content>
-    </entry>
     <entry>
         <title>Scotch Eggs</title>
         <author>
