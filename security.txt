@@ -1,0 +1,15 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Contact: mailto:elfrinjo@gmail.com
+Expires: 2026-04-01T11:47:00.000Z
+Encryption: https://keys.openpgp.org/vks/v1/by-fingerprint/F88E37A28EFFE8D1EF6DF4521629C0D78E95EBEC
+Preferred-Languages: de, en
+Canonical: https://elfring.ms/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQT4jjeijv/o0e9t9FIWKcDXjpXr7AUCZigCbgAKCRAWKcDXjpXr
+7Fw4AP9GhBte2dnlPrv9ajqZ0TQRmwghA1DkX1BACWXTu/wu9AEA2msXnpM55PFQ
+EV1pBQtXAozdH6IfP+X6w0sodpIG6wk=
+=VPZZ
+-----END PGP SIGNATURE-----
