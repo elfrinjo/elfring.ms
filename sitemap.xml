@@ -37,11 +37,15 @@
 </image:image>
 </url>
 <url>
+<loc>https://elfring.ms/hallo.html</loc>
+<lastmod>2025-10-22T21:28:34+02:00</lastmod>
+</url>
+<url>
 <loc>https://elfring.ms/have-i-been-pwned.html</loc>
-<lastmod>2023-10-18T19:14:06+02:00</lastmod>
+<lastmod>2025-11-01T15:04:29+01:00</lastmod>
 <image:image>
 <image:loc>https://elfring.ms/media/posts/8/matthew-brodeur-436250-unsplash.png</image:loc>
-<image:title><![CDATA[]]></image:title>
+<image:title><![CDATA[Matthew Brodeur via Unspalsh]]></image:title>
 </image:image>
 <image:image>
 <image:loc>https://elfring.ms/media/posts/8/pwnedpswrds_1.png</image:loc>
@@ -50,10 +54,10 @@
 </url>
 <url>
 <loc>https://elfring.ms/rpn-spundungsrechner-3.html</loc>
-<lastmod>2023-10-18T19:15:21+02:00</lastmod>
+<lastmod>2025-11-01T15:05:33+01:00</lastmod>
 <image:image>
 <image:loc>https://elfring.ms/media/posts/6/Hp42s_face.png</image:loc>
-<image:title><![CDATA[]]></image:title>
+<image:title><![CDATA[Wikimedia Commons https://commons.wikimedia.org/wiki/File:Hp42s_face.jpeg]]></image:title>
 </image:image>
 <image:image>
 <image:loc>https://elfring.ms/media/posts/6/1.2bar.png</image:loc>
@@ -62,7 +66,7 @@
 </url>
 <url>
 <loc>https://elfring.ms/scotch-eggs.html</loc>
-<lastmod>2023-10-18T18:37:51+02:00</lastmod>
+<lastmod>2025-11-01T14:57:04+01:00</lastmod>
 <image:image>
 <image:loc>https://elfring.ms/media/posts/10/scotch_eggs.png</image:loc>
 <image:title><![CDATA[]]></image:title>
@@ -70,10 +74,10 @@
 </url>
 <url>
 <loc>https://elfring.ms/vpn-mit-wireguard.html</loc>
-<lastmod>2023-10-18T19:11:46+02:00</lastmod>
+<lastmod>2025-11-01T15:05:12+01:00</lastmod>
 <image:image>
 <image:loc>https://elfring.ms/media/posts/7/markus-spiske-793546-unsplash.png</image:loc>
-<image:title><![CDATA[]]></image:title>
+<image:title><![CDATA[Markus  Spiske via Unsplash]]></image:title>
 </image:image>
 <image:image>
 <image:loc>https://elfring.ms/media/posts/7/wg-vpn-2.png</image:loc>
